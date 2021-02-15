@@ -20,9 +20,9 @@ export class AuthenticationEffects {
   }
 
   @Effect()
-  Login: Observable<any> = this.actions
-    .ofType(AuthenticationActionTypes.LOGIN)
+  login: Observable<any> = this.actions
     .pipe(
+      ofType(AuthenticationActionTypes.LOGIN),
       map((action: Login) => action.payload),
       switchMap(payload => {
         return this.authenticationService.login(payload.username, payload.password)
@@ -38,7 +38,7 @@ export class AuthenticationEffects {
 
 
   @Effect({dispatch: false})
-  LoginSuccess: Observable<any> = this.actions.pipe(
+  loginSuccess: Observable<any> = this.actions.pipe(
     ofType(AuthenticationActionTypes.LOGIN_SUCCESS),
     tap((user) => {
       // when the user logs in successfully, the token and email are saved to localStorage
@@ -49,12 +49,12 @@ export class AuthenticationEffects {
   );
 
   @Effect({dispatch: false})
-  LoginFailure: Observable<any> = this.actions.pipe(
+  loginFailure: Observable<any> = this.actions.pipe(
     ofType(AuthenticationActionTypes.LOGIN_FAILURE)
   );
 
   @Effect({dispatch: false})
-  public Logout: Observable<any> = this.actions.pipe(
+  public logout: Observable<any> = this.actions.pipe(
     ofType(AuthenticationActionTypes.LOGOUT),
     tap((user) => {
       // when the user log out the token and email are removed from localStorage

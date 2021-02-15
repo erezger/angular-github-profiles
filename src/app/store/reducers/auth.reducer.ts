@@ -13,9 +13,9 @@ export const initialState: State = {
   isAuthenticated: localStorage.getItem('token') !== null,
   user: {
     token: localStorage.getItem('token'),
-    username: localStorage.getItem('username')
+    username: localStorage.getItem('username'),
   },
-  errorMessage: null
+  errorMessage: null,
 };
 
 export function reducer(state = initialState, action: AuthenticationActions): State {
@@ -26,15 +26,15 @@ export function reducer(state = initialState, action: AuthenticationActions): St
         isAuthenticated: true,
         user: {
           token: action.payload.token,
-          username: action.payload.username
+          username: action.payload.username,
         },
-        errorMessage: null
+        errorMessage: null,
       };
     }
     case AuthenticationActionTypes.LOGIN_FAILURE: {
       return {
         ...state,
-        errorMessage: 'Wrong credentials.'
+        errorMessage: 'Wrong credentials.',
       };
     }
     case AuthenticationActionTypes.LOGOUT: {

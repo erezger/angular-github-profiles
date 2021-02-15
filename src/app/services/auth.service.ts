@@ -26,7 +26,7 @@ export class AuthenticationService {
     // this is a mocked response to be able to test the example
     return new Observable((observer) => {
       if (username === this.testUser.username && password === this.testUser.password) {
-        observer.next({email: this.testUser.username, token: this.testUser.token});
+        observer.next({username: this.testUser.username, token: this.testUser.token});
       } else {
         observer.error({error: 'invalid credentials.'});
       }

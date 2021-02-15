@@ -1,0 +1,28 @@
+<div class="row mt-5 justify-content-center">
+  <div class="col-md-6">
+    <form (ngSubmit)="onSubmit()" ngNativeValidate class="box">
+      <h1>Login</h1>
+      <div *ngIf="errorMessage">
+        <div class="alert alert-danger" role="alert">
+          {{errorMessage}}
+        </div>
+      </div>
+      <p class="text-muted"> Please enter your login and password!</p>
+      <input
+        [(ngModel)]="user.username"
+        name="username"
+        type="text"
+        required
+        id="username"
+        placeholder="enter your username">
+      <input
+        [(ngModel)]="user.password"
+        name="password"
+        type="password"
+        required
+        id="password"
+        placeholder="enter a password">
+      <input type="submit" name="" value="Login" href="#">
+    </form>
+  </div>
+</div>
