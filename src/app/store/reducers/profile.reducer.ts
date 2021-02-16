@@ -1,6 +1,6 @@
 // profile.reducer.ts
 import {Profile} from '../../models/profile';
-import {ProfileActionTypes} from '../actions/profile.actions';
+import {ProfileActions, ProfileActionTypes} from '../actions/profile.actions';
 
 export interface State {
   profiles: Profile[];
@@ -13,7 +13,7 @@ export const initialState: State = {
   errorMessage: null,
 };
 
-export function reducer(state = initialState, action: ProfileActionTypes): State {
+export function reducer(state = initialState, action: ProfileActions): State {
   switch (action.type) {
     case ProfileActionTypes.GET_PROFILES_SUCCESS: {
       return {

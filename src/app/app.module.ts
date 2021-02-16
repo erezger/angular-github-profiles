@@ -16,6 +16,9 @@ import {AuthenticationService} from './services/auth.service';
 
 import {AuthenticationEffects} from './store/effects/auth.effects';
 import {reducers} from './store/app.states';
+import {ProfileService} from './services/profile.service';
+import {ProfileEffects} from './store/effects/profile.effects';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,12 +30,14 @@ import {reducers} from './store/app.states';
     BrowserModule,
     Routing,
     FormsModule,
-    EffectsModule.forRoot([AuthenticationEffects]),
+    HttpClientModule,
+    EffectsModule.forRoot([AuthenticationEffects, ProfileEffects]),
     StoreModule.forRoot(reducers, {})
   ],
   providers: [
     AuthenticationGuardService,
-    AuthenticationService
+    AuthenticationService,
+    ProfileService
   ],
   bootstrap: [AppComponent]
 })

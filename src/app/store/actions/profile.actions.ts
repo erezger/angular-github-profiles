@@ -29,6 +29,6 @@ export class GetProfileFailure implements Action {
 }
 
 export type ProfileActions =
-  | GetProfile
+  | GetProfiles
   | GetProfileSuccess
   | GetProfileFailure;

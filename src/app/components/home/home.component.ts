@@ -4,7 +4,7 @@ import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
 
 import {User} from '../../models/user';
-import {AppState, selectAuthenticationState} from '../../store/app.states';
+import {AppState, selectAuthenticationState, selectProfileState} from '../../store/app.states';
 import {Logout} from '../../store/actions/auth.actions';
 import {GetProfiles} from '../../store/actions/profile.actions';
 
@@ -16,15 +16,17 @@ import {GetProfiles} from '../../store/actions/profile.actions';
 export class HomeComponent implements OnInit {
 
   user: User;
-  getState: Observable<any>;
+  getAuthState: Observable<any>;
+  getProfileState: Observable<any>;
   isAuthenticated = false;
 
   constructor(private store: Store<AppState>) {
-    this.getState = this.store.select(selectAuthenticationState);
+    this.getAuthState = this.store.select(selectAuthenticationState);
+    this.getProfileState = this.store.select(selectProfileState);
   }
 
   ngOnInit() {
-    this.getState.subscribe((state) => {
+    this.getAuthState.subscribe((state) => {
       this.isAuthenticated = state.isAuthenticated;
       this.user = state.user;
     });

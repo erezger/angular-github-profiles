@@ -18,7 +18,7 @@ export class ProfileService {
 
   getProfiles(): Observable<Profile[]> {
     // this is a mocked response to be able to test the example
-    return from(this.http.get<Profile[]>(this.baseUrl))
+    return from(this.http.get<Profile[]>(this.baseUrl + '/users'))
       .pipe(
         map((response) => response),
       );
