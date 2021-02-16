@@ -3,10 +3,8 @@ import {Component, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
 
-import {User} from '../../models/user';
-import {AppState, selectAuthenticationState, selectProfileState} from '../../store/app.states';
-import {Logout} from '../../store/actions/auth.actions';
-import {GetProfiles} from '../../store/actions/profile.actions';
+import {User} from '../../../models/user';
+import {AppState, selectAuthenticationState} from '../../../store/app.states';
 
 @Component({
   selector: 'app-home',
@@ -17,12 +15,10 @@ export class HomeComponent implements OnInit {
 
   user: User;
   getAuthState: Observable<any>;
-  getProfileState: Observable<any>;
   isAuthenticated = false;
 
   constructor(private store: Store<AppState>) {
     this.getAuthState = this.store.select(selectAuthenticationState);
-    this.getProfileState = this.store.select(selectProfileState);
   }
 
   ngOnInit() {
@@ -30,10 +26,5 @@ export class HomeComponent implements OnInit {
       this.isAuthenticated = state.isAuthenticated;
       this.user = state.user;
     });
-    this.store.dispatch(new GetProfiles());
-  }
-
-  logout(): void {
-    this.store.dispatch(new Logout);
   }
 }

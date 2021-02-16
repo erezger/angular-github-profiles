@@ -1,0 +1,23 @@
+<!-- Sidebar -->
+<nav class="sidebar light">
+  <!-- Sidebar -->
+
+  <div class="sidebar-header">
+    <h3 *ngIf="isAuthenticated">
+      {{user.username.toLocaleUpperCase()}}
+    </h3>
+  </div>
+
+  <ul class="list-unstyled menu-elements">
+    <li routerLinkActive="active">
+      <a class="scroll-link" routerLink="home" routerLinkActive="active"><i class="fas fa-home"></i>Home</a>
+    </li>
+    <li routerLinkActive="active">
+      <a class="scroll-link" routerLink="github-profile" routerLinkActive="active"><i class="fas fa-cog"></i>Github Profiles</a>
+    </li>
+  </ul>
+
+  <a class="logout-link" (click)="logout()">Logout</a>
+
+</nav>
+<!-- End sidebar -->

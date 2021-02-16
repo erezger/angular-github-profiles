@@ -8,6 +8,8 @@ export class Profile {
   html_url?: string;
   followers_url?: string;
   following_url?: string;
+  following_count?: string;
+  followers_count?: string;
   gists_url?: string;
   starred_url?: string;
   subscriptions_url?: string;

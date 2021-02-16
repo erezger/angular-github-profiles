@@ -1,0 +1,25 @@
+<h1 class="title">Profiles</h1>
+<table class="table table-image">
+  <thead>
+  <tr>
+    <th scope="col"></th>
+    <th scope="col">ID</th>
+    <th scope="col">Name</th>
+    <th scope="col">Following count</th>
+    <th scope="col">Followers</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let profile of profiles"
+  >
+    <td>
+      <img [src]="profile.avatar_url" [alt]="profile.login"
+           class="img-fluid img-thumbnail">
+    </td>
+    <td>{{ profile.id }}</td>
+    <td>{{ profile.login }}</td>
+    <td>{{ profile.following_count }}</td>
+    <td>{{ profile.followers_count }}</td>
+  </tr>
+  </tbody>
+</table>

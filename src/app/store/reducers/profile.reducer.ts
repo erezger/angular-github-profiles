@@ -18,7 +18,7 @@ export function reducer(state = initialState, action: ProfileActions): State {
     case ProfileActionTypes.GET_PROFILES_SUCCESS: {
       return {
         ...state,
-        profiles: action.payload.profiles,
+        profiles: action.payload,
         errorMessage: null,
       };
     }
