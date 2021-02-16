@@ -6,6 +6,7 @@ import {Observable} from 'rxjs';
 import {User} from '../../models/user';
 import {AppState, selectAuthenticationState} from '../../store/app.states';
 import {Logout} from '../../store/actions/auth.actions';
+import {GetProfiles} from '../../store/actions/profile.actions';
 
 @Component({
   selector: 'app-home',
@@ -27,6 +28,7 @@ export class HomeComponent implements OnInit {
       this.isAuthenticated = state.isAuthenticated;
       this.user = state.user;
     });
+    this.store.dispatch(new GetProfiles());
   }
 
   logout(): void {
